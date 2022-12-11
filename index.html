@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Parsing App</title>
+    <link rel="stylesheet" href="./css/ol.css">
+    <link rel="stylesheet" href="./css/gist7132.css">
+    <script src="./javascripts/ol.js"></script>
+    <script src="./javascripts/layers.js"></script>
+    <script src="./javascripts/gist7132m08.js"></script>
+</head>
+<body>
+    <h1>JSON Parsing App</h1>
+    <form action="">
+        <div id = 'intro'>
+        <p>This tool will accept geographic data in JSON format, parse though the information and display your choice
+        of park from the drop down menu on the OpenLayers Webmapping Service. The map will zoom to the park automatically.</p>
+        <p>Highlight and copy the JSON text from the box below, then paste it into the box below and click on "Load the List" button</p>
+        </div>
+        <div id = 'json'>
+        <p>[{"text":"Big Bunsby Marine Provincial Park ","value":"-14194147.8959669:6464965.87470341"},
+            {"text":"Bligh Island Marine Provincial Park ","value":"-14086390.628879:6380243.66888713"},
+            {"text":"Brooks Peninsula Provincial Park ","value":"-14219729.1149512:6486081.66960678"},
+            {"text":"Broughton Archipelago Marine Provincial Park","value":"-14105348.3381611:6565269.94605317"}]
+        </p>
+        </div>
+        <textarea name="" id="listDataAsJSON" cols="122" rows="10"></textarea>
+        <!-- To find this you need to use the inner html function to grab the text between the tags This one might be
+        value-->
+        <br>
+        <!-- Below function requires that a map be passed in, we pass it the global map-->
+    <button type="button" onclick="loadList()">Load the list</button>
+    <select name="" id="parkList" onchange="zoomMap2Park(this.value, map)"></select>
+
+    </form>
+    <div id="divMessage">The map will show up here</div>
+</body>
+<div id = "map"> </div> 
+<script>
+    var map; 
+    initMap();
+</script>
+</html>
